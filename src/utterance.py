@@ -34,7 +34,8 @@ class Utterance:
         self.create_utterance(nlp)
         self.verb_type = self.classify_main_verb(self.lemma)
 
-    # turn the utterance into a list of tokens
+
+    # Turn the utterance into a list of tokens
     def create_utterance(self, nlp) -> None:
         """Uses the nlp argument to determine how an utterance (a list of tokens) will be created.
 
@@ -103,7 +104,7 @@ class Utterance:
             self.token_list.append(new_token)
 
 
-    # identify relevant features for analysis (main verb, inflection, and verb classification)
+    # Identify relevant features for analysis (main verb, inflection, and verb classification)
     def identify_main_verb(self, token: str) -> None:
         """Uses the NLP modules to identify whether the token is the main verb of its utterance.
 
@@ -115,7 +116,7 @@ class Utterance:
                 self.main_verb = token.get('text')
                 self.main_verb = replacements.get(self.main_verb, self.main_verb)
                 if self.nlp:
-                    updated_token = self.nlp(self.main_verb)[0] # the main verb is a list item, so it's indexed
+                    updated_token = self.nlp(self.main_verb)[0]
                     self.lemma = updated_token.lemma_
         elif self.tokenizer == 'stanza':
             if token.get('dep') == 'root':
@@ -126,7 +127,7 @@ class Utterance:
                     for sent in doc.sentences:
                         for word in sent.words:
                             self.lemma = word.lemma
-                            return # exits nested loops early, prevents correct lemma from being overwritten
+                            return
         else:
             pass
 
