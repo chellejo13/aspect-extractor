@@ -4,9 +4,8 @@ import stanza
 import pandas as pd
 
 
-def process_data_chunk(data_chunk, spacy_nlp, stanza_nlp):
-
-    '''
+def process_data_chunk(data_chunk, spacy_nlp, stanza_nlp) -> None:
+    """
     This function uses SpaCy and Stanza to create individual Corpus class instances from a pandas data frame. Upon
     creation of these class instances, each individual document, utterance, and token within the corpus will also
     generate their own instances within their respective subordinate classes, and save values relevant for analysis to
@@ -14,7 +13,7 @@ def process_data_chunk(data_chunk, spacy_nlp, stanza_nlp):
     frames, with each row representing a single utterance in the corpus: agreement_df and disagreement_df. These data
     frames will look the same with the exception that in agreement_df, the tokens in the spacy_main_verb and
     stanza_main_verb columns should be the same, while in disagreement_df, values in those columns are different.
-    '''
+    """
 
     # create Corpus class instances for each NLP package
     spacy_corpus = corpus.Corpus()
@@ -75,6 +74,7 @@ def process_data_chunk(data_chunk, spacy_nlp, stanza_nlp):
                 if spacy_utterance.main_verb != stanza_utterance.main_verb:
                     disagreement_df.append({**spacy_row, **stanza_row})
 
+    # save the data frames as running csv files that can be added to upon each batch being processed
     pd.DataFrame(agreement_df).to_csv("../processed_data/agreement_data.csv", mode='a', header=not
                                       pd.io.common.file_exists("../processed_data/agreement_data.csv"), index=False)
     pd.DataFrame(disagreement_df).to_csv("../processed_data/disagreement_data.csv", mode='a', header=not

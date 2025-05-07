@@ -1,19 +1,16 @@
-
 class Token:
-
+    """
+    The most subordinate structure in the class structure (below Utterance). Only really useful in the case where there
+    is no nlp package loaded.
+    """
     def __init__(self, original_token_string):
-
         self.original_token_string = original_token_string
         self.text = None
-        self.pos = None
-        self.tense = None
-        self.aspect = None
 
         self.create_token()
 
-    def __str__(self):
-        output_string = self.text
-        return output_string
-
-    def create_token(self):
+    def create_token(self) -> None:
+        """
+        For the default method of creating a list of tokens from an utterance (without a nlp package), this can be used.
+        """
         self.text = self.original_token_string.lower()
