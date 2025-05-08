@@ -29,7 +29,7 @@ According to Vendler (1967), verbs can fall under four categories depending on t
 
 ## What is the Aspect Hypothesis?
 The Aspect Hypothesis is a general set of predictions for how children (in most languages) first start to use inflectional markers for tense 
-and aspect with respect to the above notions of grammatical aspect and the four verb types (Bloom & Harner, 1989; Andersen, 1989).
+and aspect with respect to the above notions of grammatical aspect and the four verb types (Weist, et al., 1984; Bloom & Harner, 1989).
 
 It states:
 1. Children first use past/perfective marking predominantly with achievement and accomplishment verbs, eventually extending their use to activity and finally to stative verbs.
