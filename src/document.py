@@ -6,6 +6,8 @@ class Document:
     The second most superordinate class in the structure (below Corpus). Documents are sub-corpora that make up the
     full corpus in CHILDES. Each Document instance has a target child age attribute (the age of the child being studied
     in that sub-corpus). It also has a list of all the utterances within that sub-corpus.
+
+    Attribution: This class structure was written in collaboration with Dr. Jon Willits.
     """
     def __init__(self, document_name: str, target_child_age: int) -> None:
         self.document_name = document_name

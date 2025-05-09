@@ -2,6 +2,8 @@ class Token:
     """
     The most subordinate structure in the class structure (below Utterance). Only really useful in the case where there
     is no nlp package loaded.
+
+    Attribution: This class structure was written in collaboration with Dr. Jon Willits
     """
     def __init__(self, original_token_string):
         self.original_token_string = original_token_string

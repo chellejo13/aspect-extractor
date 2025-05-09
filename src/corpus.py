@@ -5,6 +5,8 @@ class Corpus:
     """
     The most superordinate (hierarch) class in the structure. It results in a list of all the documents (sub-corpora)
     in the full corpus and counts them as they're created.
+
+    Attribution: This class structure was written in collaboration with Dr. Jon Willits.
     """
     def __init__(self) -> None:
         self.document_list = []

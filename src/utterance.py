@@ -4,7 +4,12 @@ from vendler_classification import classified_verbs
 
 
 class Utterance:
-    """The second most subordinate class in the structure (below Document)."""
+    """
+    The second most subordinate class in the structure (below Document).
+
+    Attribution: This class structure was written in collaboration with Dr. Jon Willits (the methods he
+    contributed to are specifically marked below).
+    """
     def __init__(self,
                  utterance_index: int,
                  transcript_index: int,
@@ -41,6 +46,8 @@ class Utterance:
 
         Args:
             nlp: The loaded nlp package used to tokenize the utterances
+
+        Attribution: This method was written in collaboration with Dr. Jon Willits.
         """
         if self.tokenizer is not None:
             if self.tokenizer == 'spacy':
@@ -96,8 +103,12 @@ class Utterance:
             self.identify_main_verb(token_dict)
             self.identify_inflection(token_dict)
 
-    def create_token_list(self):
-        """The default method for making an utterance (list of tokens) when no nlp package is loaded."""
+    def create_token_list(self) -> None:
+        """
+        The default method for making an utterance (list of tokens) when no nlp package is loaded.
+
+        Attribution: This method was written in collaboration with Dr. Jon Willits.
+        """
         token_string_list = self.utterance_string.split()
         for token_string in token_string_list:
             new_token = Token(token_string)
