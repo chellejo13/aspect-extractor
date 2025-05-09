@@ -69,6 +69,7 @@ combination with either past perfect or present progressive aspect, the class st
 other purposes depending on what other features need to be extracted for a different analysis, making it useful for 
 speech production analyses in general.
 
+
 ## Installation
 ```
 # Install required dependencies
@@ -82,11 +83,12 @@ python statistical_analysis.py
 ```
 
 ## Testing
-A sample raw dataset organized as expected by the script is provided in `tests/` as a CSV file. The file path for it is 
-already coded into `corpus_analysis.py` for testing purposes.
+### Processing Data
+A sample raw dataset organized as expected by the script is provided in `tests/` as a CSV file (sample_raw_data.csv).
+The file path for it is already coded into `corpus_analysis.py` for testing purposes.
 
-When running `corpus_analysis.py`, you will first see that Stanza is loading in its models for English: tokenize, mwt, 
-pos, lemma, and depparse. Once it's done loading, it should print "Done loading processors!"
+When running `corpus_analysis.py`, you will first see in the terminal that Stanza is loading in its models for English: 
+tokenize, mwt, pos, lemma, and depparse. Once it's done loading, it should print "Done loading processors!"
 Then, you will be prompted to enter the minimum and maximum age values that you want to process data for in days. This 
 is included as an option because you may only be interested in a certain target child age range, or you may want to 
 process data in batches for time's sake (processing a large range can take a while). In the test file, the lowest age 
@@ -123,6 +125,23 @@ has been created with two files inside: agreement_df.csv and disagreement_df.csv
   - Stanza Grammatical Aspect
 - disagreement_df.csv should look exactly like agreement_df.csv with the exception that values in the SpaCy Main Verb and Stanza Main Verb columns should differ.
 
+### Analyzing Data
+A sample processed dataset is organized as expected by the script is provided in `tests/` as a CSV file 
+(sample_processed_data.csv). The file path for it is already coded into `statistical_analysis.py` for testing purposes.
+
+Upon running `statistical_analysis.py`, it will have worked if it creates a new directory called `analyses/` containing 
+a set of three CSV files:
+1. aggregate_proportions_Caregiver.csv
+2. aggregate_proportions_Child.csv
+3. verb_counts.csv
+
+These files will contain data frames of simple proportions and counts calculated from the processed data generated in 
+`corpus_analysis.py`.
+
+`analyses/` should also contain a directory called `figures/` containing three png images plotting those calculations:
+1. aggregate_proportions_Caregiver.png
+2. aggregate_proportions_Child.png
+3. token_counts.png
 
 ## Code Structure
 - `src/`
