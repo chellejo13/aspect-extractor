@@ -110,7 +110,7 @@ test file because it has fewer than 100 documents in it.
 
 Once both packages are done, you will know that everything worked successfully if, upon the program finishing, the 
 terminal prints how many documents there are in SpaCy and Stanza's corpora, and a new directory called `processed_data` 
-has been created with two files inside: agreement_df.csv and disagreement_df.csv.
+has been added to the existing structure with two files inside: agreement_df.csv and disagreement_df.csv.
 - In agreement_df.csv, there should be 16 columns in this order, with values in SpaCy Main Verb and Stanza Main Verb being the same verb:
   - Utterance Index
   - Document Name
@@ -134,7 +134,7 @@ has been created with two files inside: agreement_df.csv and disagreement_df.csv
 A sample processed dataset is organized as expected by the script is provided in `tests/` as a CSV file 
 (sample_processed_data.csv). The file path for it is already coded into `statistical_analysis.py` for testing purposes.
 
-Upon running `statistical_analysis.py`, it will have worked if it creates a new directory called `analyses/` containing 
+Upon running `statistical_analysis.py`, it will have worked if it creates a new directory called `analyses/` in the existing file structure, containing 
 a set of three CSV files:
 1. aggregate_proportions_Caregiver.csv
 2. aggregate_proportions_Child.csv
