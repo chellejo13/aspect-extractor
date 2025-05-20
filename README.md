@@ -71,14 +71,18 @@ speech production analyses in general.
 
 
 ## Installation
+Download the full repository!
 ```
 # Install required dependencies
 pip install -r requirements.txt
 
-# Process corpus data
+# Install the spaCy medium English model
+python -m spacy download en_core_web_md
+
+# Process corpus data - make sure working directory is src
 python corpus_analysis.py
 
-# Run the statistical analysis
+# Get proportions and figures - make sure working directory is src
 python statistical_analysis.py
 ```
 
@@ -87,12 +91,12 @@ python statistical_analysis.py
 A sample raw dataset organized as expected by the script is provided in `tests/` as a CSV file (sample_raw_data.csv).
 The file path for it is already coded into `corpus_analysis.py` for testing purposes.
 
-When running `corpus_analysis.py`, you will first see in the terminal that Stanza is loading in its models for English: 
-tokenize, mwt, pos, lemma, and depparse. Once it's done loading, it should print "Done loading processors!"
-Then, you will be prompted to enter the minimum and maximum age values that you want to process data for in days. This 
-is included as an option because you may only be interested in a certain target child age range, or you may want to 
-process data in batches for time's sake (processing a large range can take a while). In the test file, the lowest age 
-is 330 days, while the maximum is 3568.
+When running `corpus_analysis.py`, you will first see in the terminal that Stanza is downloading and loading in its 
+models for English: tokenize, mwt, pos, lemma, and depparse. Once it's done loading, it should print "Done loading 
+processors!" Then, you will be prompted to enter the minimum and maximum age values that you want to process data for 
+in days. This is included as an option because you may only be interested in a certain target child age range, or you 
+may want to process data in batches for time's sake (processing a large range can take a while). In the test file, 
+the lowest age is 330 days, while the maximum is 3568. Choose whatever age range you'd like!
 
 Once entered, you will see "Processing data for minimum age to maximum age..."
 If there is no data for that age range within the file, you will see "No data found for ages minimum age-maximum age."
@@ -101,7 +105,8 @@ each NLP package. As you wait, if there are at least 100 documents in the range 
 print statements like "Corpus has 100 documents" for every hundred documents that have been processed so far, 
 indicating the progress that has been made by the current package that is processing the data (SpaCy first, Stanza 
 second). Once the first package is done, you will know that the second package is processing data as the print 
-statements will reset their counts, going back down to "Corpus has 100 documents."
+statements will reset their counts, going back down to "Corpus has 100 documents." These statements do not apply to the 
+test file because it has fewer than 100 documents in it.
 
 Once both packages are done, you will know that everything worked successfully if, upon the program finishing, the 
 terminal prints how many documents there are in SpaCy and Stanza's corpora, and a new directory called `processed_data` 
